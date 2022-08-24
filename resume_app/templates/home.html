@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} Home Blog {% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        {% for item in object_list %}
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-2">
+                    <img src="{{ item.picture.url }}" style="width:240px;height:200px;" class="img-fluid rounded-start"
+                         alt="...">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="#">{{ item.name }}</a>
+                        </h5>
+                        <ul>
+                            <li>Tác giả: <a href="#">{{ item.author_name }}</a></li>
+                            <li>Số bài học: <span>{{ item.num_lessons }}</span></li>
+                        </ul>
+                        <p class="card-text">{{ item.excerpt }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
